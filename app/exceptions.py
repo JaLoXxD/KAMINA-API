@@ -1,7 +1,7 @@
 from fastapi import Request, HTTPException
 from fastapi.responses import JSONResponse
 from sqlalchemy.exc import IntegrityError
-from app.dto.response.genericResponse import GenericResponse
+from app.dto.response.generic_response import GenericResponse
 import logging
 
 # Configure logging
