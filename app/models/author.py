@@ -6,4 +6,4 @@ class Author(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String(50), nullable=False)
-    birthDate = Column(DateTime, nullable=True)
+    birth_date = Column(DateTime, nullable=True)
