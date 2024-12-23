@@ -1,3 +1,3 @@
-from .authorSchema import AuthorBase
-from .bookSchema import BookBase
-from .userSchema import UserBase
+from .author_schema import AuthorBase
+from .book_schema import BookBase
+from .user_schema import UserBase
