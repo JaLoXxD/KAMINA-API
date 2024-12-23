@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from app.database import Base, engine
-from app.routes.userRoutes import router as user_router
 from app.exceptions import ExceptionHandlers
+from app.routes.api import api_router
 
 app = FastAPI()
 
@@ -9,7 +9,7 @@ app = FastAPI()
 Base.metadata.create_all(bind=engine)
 
 # Include routes
-app.include_router(user_router, prefix="/api/v1", tags=["Users"])
+app.include_router(api_router, prefix="/api/v1")
 
 # Register exception handlers
 app.add_exception_handler(Exception, ExceptionHandlers.global_exception_handler)
