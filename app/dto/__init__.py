@@ -1,4 +1,5 @@
 from .response.generic_response import GenericResponse
+from .response.login_response import LoginResponse
 from .request.user_request import UserRequest
 from .request.user_credentials_request import UserCredentialsRequest
 from .response.user_response import UserResponse

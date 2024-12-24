@@ -5,6 +5,7 @@ from typing import Optional
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 from app.dto import *
+from app.schemas.user_schema import UserBase
 from app.config import SECRET_KEY, TOKEN_ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES
 from .base_controller import BaseController
 from fastapi import Depends, HTTPException, status
@@ -79,13 +80,10 @@ class TokenController(BaseController):
     access_token = self.create_access_token(
       data={"sub": user.email}, expires_delta=timedelta(minutes=30)
     )
-    return {
-      "success": True,
-      "access_token": access_token,
-      "token_type": "bearer",
-      "user": {
-        "id": user.id,
-        "name": user.name,
-        "email": user.email
-      }
-    }
+    user_base = UserBase.from_orm(user)
+    return LoginResponse(
+      success = True,
+      access_token = access_token,
+      token_type = "bearer",
+      user = user_base
+    )
