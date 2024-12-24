@@ -7,6 +7,7 @@ Kamina API is a Python-based project designed to [brief description of what your
 
 - Python 3.9.6 or higher
 - pip (Python package installer)
+- MySql DB
 
 ## Installation
 
