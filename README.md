@@ -3,6 +3,11 @@
 ## Description
 Kamina API is a Python-based project designed to [brief description of what your project does].
 
+## Prerequisites
+
+- Python 3.9.6 or higher
+- pip (Python package installer)
+
 ## Installation
 
 1. Clone the repository:
