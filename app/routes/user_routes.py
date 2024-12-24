@@ -9,10 +9,6 @@ router = APIRouter(prefix="/users")
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("userApi")
 
-@router.get("/raise-unexpected-exception")
-async def raise_unexpected_exception():
-  raise Exception("Unexpected error occurred")
-
 @router.post("/register", response_model=UserResponse)
 def create_user(user: UserRequest, controller: UserController = Depends(UserController)):
   return controller.create_user(user)
@@ -29,6 +25,6 @@ def get_user_by_id(id: int, user: UserRequest, controller: UserController = Depe
 def get_user_by_id(id: int, controller: UserController = Depends(UserController), current_user: dict = Depends(TokenController.get_current_user)):
   return controller.delete_user_by_id(id)
 
-@router.post("/login")
+@router.post("/login", response_model=LoginResponse)
 def login_user(user: UserCredentialsRequest, controller: TokenController = Depends(TokenController)):
   return controller.login_user(user)

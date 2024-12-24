@@ -18,10 +18,10 @@ def create_author(author: AuthorRequest, controller: AuthorController = Depends(
 def get_author_by_id(id: int, controller: AuthorController = Depends(AuthorController), current_user: dict = Depends(TokenController.get_current_user)):
   return controller.get_author_by_id(id)
 
-@router.put("/{id}")
+@router.put("/{id}", response_model=AuthorResponse)
 def update_author(id: int, author: AuthorRequest, controller: AuthorController = Depends(AuthorController), current_user: dict = Depends(TokenController.get_current_user)):
   return controller.update_author(id, author)
 
-@router.delete("/{id}")
+@router.delete("/{id}", response_model=AuthorResponse)
 def delete_author(id: int, controller: AuthorController = Depends(AuthorController), current_user: dict = Depends(TokenController.get_current_user)):
   return controller.delete_author(id)

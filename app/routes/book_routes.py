@@ -28,10 +28,10 @@ def return_book(rentBookRequest: RentBookRequest, controller: BookController = D
 def get_book_by_id(id: int, controller: BookController = Depends(BookController), current_user: dict = Depends(TokenController.get_current_user)):
   return controller.get_book_by_id(id)
 
-@router.put("/{id}")
+@router.put("/{id}", response_model=BookResponse)
 def update_book_by_id(id: int, book: BookRequest, controller: BookController = Depends(BookController), current_user: dict = Depends(TokenController.get_current_user)):
   return controller.update_book_by_id(id, book)
 
-@router.delete("/{id}")
+@router.delete("/{id}", response_model=GenericResponse)
 def delete_Book_by_id(id: int, controller: BookController = Depends(BookController), current_user: dict = Depends(TokenController.get_current_user)):
   return controller.delete_book_by_id(id)
