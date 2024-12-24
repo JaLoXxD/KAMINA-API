@@ -12,7 +12,7 @@ Kamina API is a Python-based project designed to [brief description of what your
 
 1. Clone the repository:
   ```bash
-  git clone https://github.com/yourusername/kamina-api.git
+  git clone https://github.com/JaLoXxD/KAMINA-API
   cd kamina-api
   ```
 
